@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ObserberGraph" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tg0-eB-P5j" customClass="GraphView" customModule="ObserberGraph" customModuleProvider="target">
+                                <rect key="frame" x="140" y="50" width="320" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tod-No-J2P">
+                                        <rect key="frame" x="253" y="114" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.8862745098" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="tod-No-J2P" firstAttribute="leading" secondItem="tg0-eB-P5j" secondAttribute="leading" constant="253" id="59r-xH-buf"/>
+                                    <constraint firstItem="tod-No-J2P" firstAttribute="top" secondItem="tg0-eB-P5j" secondAttribute="top" constant="114" id="Bkc-W7-3K0"/>
+                                    <constraint firstAttribute="height" constant="250" id="O6v-Z8-cgb"/>
+                                    <constraint firstAttribute="width" constant="320" id="cuk-0b-35Q"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BaD-5X-9cu">
+                                <rect key="frame" x="138" y="394" width="324" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Jhg-Qe-i1y"/>
+                                    <constraint firstAttribute="width" constant="320" id="a4w-QE-Wbz"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changed_slider" destination="BYZ-38-t0r" eventType="valueChanged" id="sH6-w0-g1h"/>
+                                </connections>
+                            </slider>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-jK-GoB">
+                                <rect key="frame" x="0.0" y="432" width="600" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="W7p-A4-hfW"/>
+                                    <constraint firstAttribute="width" constant="600" id="YPr-sL-u4a"/>
+                                </constraints>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="数値を入力してください" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2V-lp-T4g">
+                                <rect key="frame" x="200" y="342" width="199" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="199" id="RA5-i5-1KT"/>
+                                    <constraint firstAttribute="height" constant="30" id="rEI-2d-pj6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="changed_textField" destination="BYZ-38-t0r" eventType="editingChanged" id="Hz6-J8-rzr"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ng8-jK-GoB" firstAttribute="top" secondItem="BaD-5X-9cu" secondAttribute="bottom" constant="8" symbolic="YES" id="NmN-4w-JY1"/>
+                            <constraint firstItem="BaD-5X-9cu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NoC-r8-3kr"/>
+                            <constraint firstItem="u2V-lp-T4g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RNc-PO-jjJ"/>
+                            <constraint firstItem="BaD-5X-9cu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="109" id="dj7-Qq-tAj"/>
+                            <constraint firstItem="u2V-lp-T4g" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="57" id="rNx-3h-HIv"/>
+                            <constraint firstItem="tg0-eB-P5j" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-125" id="sv1-lr-ydv"/>
+                            <constraint firstItem="ng8-jK-GoB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="szD-LJ-AkJ"/>
+                            <constraint firstItem="tg0-eB-P5j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vqu-oK-uFW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="graphLabel" destination="tod-No-J2P" id="8jA-Gi-0yr"/>
+                        <outlet property="graphView" destination="tg0-eB-P5j" id="rpL-5c-VnZ"/>
+                        <outlet property="slider" destination="BaD-5X-9cu" id="5TO-SF-6dt"/>
+                        <outlet property="textField" destination="u2V-lp-T4g" id="LN0-B3-hON"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237" y="339"/>
+        </scene>
+    </scenes>
+</document>
