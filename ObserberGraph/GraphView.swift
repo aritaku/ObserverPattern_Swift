@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class GraphView: UIView {
     
-    var graphPoints:[Int] = [4, 2, 5, 6, 2, 9, 3]
+    var graphPoints:[Int] = [4, 2, 5, 6, 2, 9, 5]
 
     override func drawRect(rect: CGRect) {
         

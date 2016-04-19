@@ -80,6 +80,7 @@
                     <connections>
                         <outlet property="graphLabel" destination="tod-No-J2P" id="8jA-Gi-0yr"/>
                         <outlet property="graphView" destination="tg0-eB-P5j" id="rpL-5c-VnZ"/>
+                        <outlet property="pickerView" destination="ng8-jK-GoB" id="3Vn-fD-7tF"/>
                         <outlet property="slider" destination="BaD-5X-9cu" id="5TO-SF-6dt"/>
                         <outlet property="textField" destination="u2V-lp-T4g" id="LN0-B3-hON"/>
                     </connections>

@@ -8,21 +8,33 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var graphLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var graphView: GraphView!
+    @IBOutlet weak var pickerView: UIPickerView!
     
     var noOfPoints: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
         setGraphpointCount()
         
         slider.maximumValue = 100
         slider.minimumValue = 0
+        
+        let firstNumber: Int = graphView.graphPoints[noOfPoints - 1]
+        graphLabel.text = String(firstNumber)
+        textField.text = String(firstNumber)
+        slider.value = Float(firstNumber)
+        pickerView.selectRow(firstNumber - 1, inComponent: 0, animated: true)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +47,7 @@ class ViewController: UIViewController {
         graphLabel.text = String(Int(self.slider.value))
         print(Int(self.slider.value))
         graphView.setNeedsDisplay()
+        pickerView.selectRow(Int(self.slider.value - 1), inComponent: 0, animated: true)
     }
     
     @IBAction func changed_textField(){
@@ -46,12 +59,36 @@ class ViewController: UIViewController {
         print(slider.value)
         print(graphLabel.text)
         graphView.setNeedsDisplay()
+        pickerView.selectRow(Int(textField.text!)! - 1, inComponent: 0, animated: true)
     }
     
     func setGraphpointCount(){
         noOfPoints = graphView.graphPoints.count
     }
-
+    
+    // MARK: - PickerView
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 100
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row + 1)
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(row + 1)
+        let selectedNumber: Int = row + 1
+        graphView.graphPoints[noOfPoints - 1] = selectedNumber
+        textField.text = String(selectedNumber)
+        slider.value = Float(selectedNumber)
+        graphLabel.text = String(selectedNumber)
+    }
+    
 
 }
 
