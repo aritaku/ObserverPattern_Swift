@@ -46,8 +46,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         textField.text = String(Int(self.slider.value))
         graphLabel.text = String(Int(self.slider.value))
         print(Int(self.slider.value))
-        graphView.setNeedsDisplay()
         pickerView.selectRow(Int(self.slider.value - 1), inComponent: 0, animated: true)
+        graphView.setNeedsDisplay()
+
     }
     
     @IBAction func changed_textField(){
@@ -55,11 +56,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
            graphView.graphPoints[noOfPoints - 1] = Int(self.textField.text!)!
            slider.value = Float(self.textField.text!)!
            graphLabel.text = String(UTF8String: self.textField.text!)!
+           pickerView.selectRow(Int(textField.text!)! - 1, inComponent: 0, animated: true)
+
         }
         print(slider.value)
         print(graphLabel.text)
-        graphView.setNeedsDisplay()
-        pickerView.selectRow(Int(textField.text!)! - 1, inComponent: 0, animated: true)
+                graphView.setNeedsDisplay()
+
     }
     
     func setGraphpointCount(){
@@ -87,6 +90,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         textField.text = String(selectedNumber)
         slider.value = Float(selectedNumber)
         graphLabel.text = String(selectedNumber)
+        graphView.setNeedsDisplay()
     }
     
 
