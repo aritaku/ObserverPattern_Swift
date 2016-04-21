@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8185C561CC88FEE00BD26BB /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8185C551CC88FEE00BD26BB /* Observer.swift */; };
+		E8185C581CC8905D00BD26BB /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8185C571CC8905D00BD26BB /* Subject.swift */; };
 		E842A46D1CBD17F200ECB155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A46C1CBD17F200ECB155 /* AppDelegate.swift */; };
 		E842A46F1CBD17F200ECB155 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A46E1CBD17F200ECB155 /* ViewController.swift */; };
 		E842A4721CBD17F200ECB155 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E842A4701CBD17F200ECB155 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E8185C551CC88FEE00BD26BB /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		E8185C571CC8905D00BD26BB /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		E842A4691CBD17F200ECB155 /* ObserberGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObserberGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E842A46C1CBD17F200ECB155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E842A46E1CBD17F200ECB155 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			children = (
 				E842A46C1CBD17F200ECB155 /* AppDelegate.swift */,
 				E842A46E1CBD17F200ECB155 /* ViewController.swift */,
+				E8185C551CC88FEE00BD26BB /* Observer.swift */,
+				E8185C571CC8905D00BD26BB /* Subject.swift */,
 				E842A49A1CBD1A1300ECB155 /* GraphView.swift */,
 				E842A4701CBD17F200ECB155 /* Main.storyboard */,
 				E842A4731CBD17F200ECB155 /* Assets.xcassets */,
@@ -260,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E842A46F1CBD17F200ECB155 /* ViewController.swift in Sources */,
+				E8185C581CC8905D00BD26BB /* Subject.swift in Sources */,
+				E8185C561CC88FEE00BD26BB /* Observer.swift in Sources */,
 				E842A46D1CBD17F200ECB155 /* AppDelegate.swift in Sources */,
 				E842A49B1CBD1A1300ECB155 /* GraphView.swift in Sources */,
 			);
@@ -486,6 +494,7 @@
 				E842A4931CBD17F200ECB155 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E842A4941CBD17F200ECB155 /* Build configuration list for PBXNativeTarget "ObserberGraphTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +503,7 @@
 				E842A4961CBD17F200ECB155 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E842A4971CBD17F200ECB155 /* Build configuration list for PBXNativeTarget "ObserberGraphUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +512,7 @@
 				E842A4991CBD17F200ECB155 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

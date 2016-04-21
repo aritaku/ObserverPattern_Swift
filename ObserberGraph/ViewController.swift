@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, Observer {
     
-    @IBOutlet weak var graphLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var graphView: GraphView!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet var graphLabel: UILabel!
+    @IBOutlet var textField: UITextField!
+    @IBOutlet var slider: UISlider!
+    @IBOutlet var graphView: GraphView!
+    @IBOutlet var pickerView: UIPickerView!
+//    var graphModel = Model()
     
     var noOfPoints: Int = 0
     
@@ -24,17 +25,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        setGraphpointCount()
-        
         slider.maximumValue = 100
         slider.minimumValue = 0
         
-        let firstNumber: Int = graphView.graphPoints[noOfPoints - 1]
-        graphLabel.text = String(firstNumber)
-        textField.text = String(firstNumber)
-        slider.value = Float(firstNumber)
-        pickerView.selectRow(firstNumber - 1, inComponent: 0, animated: true)
+        setGraphpointCount()
+        update(graphView.graphPoints[noOfPoints - 1])
         
+        graphView.add(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,34 +40,22 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func changed_slider() {
         graphView.graphPoints[noOfPoints - 1] = Int(self.slider.value)
-        textField.text = String(Int(self.slider.value))
-        graphLabel.text = String(Int(self.slider.value))
-        print(Int(self.slider.value))
-        pickerView.selectRow(Int(self.slider.value - 1), inComponent: 0, animated: true)
-        graphView.setNeedsDisplay()
-
+        graphView.observerNotify(graphView.graphPoints[noOfPoints - 1])
     }
     
     @IBAction func changed_textField(){
         if self.textField.text != "" {
-           graphView.graphPoints[noOfPoints - 1] = Int(self.textField.text!)!
-           slider.value = Float(self.textField.text!)!
-           graphLabel.text = String(UTF8String: self.textField.text!)!
-           pickerView.selectRow(Int(textField.text!)! - 1, inComponent: 0, animated: true)
-
+            graphView.graphPoints[noOfPoints - 1] = Int(self.textField.text!)!
+            graphView.observerNotify(graphView.graphPoints[noOfPoints - 1])
         }
-        print(slider.value)
-        print(graphLabel.text)
-                graphView.setNeedsDisplay()
-
     }
     
     func setGraphpointCount(){
         noOfPoints = graphView.graphPoints.count
+        print("noOfPoints = \(noOfPoints)")
     }
     
-    // MARK: - PickerView
-    
+    //PickerView
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -84,53 +69,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row + 1)
-        let selectedNumber: Int = row + 1
-        graphView.graphPoints[noOfPoints - 1] = selectedNumber
-        textField.text = String(selectedNumber)
-        slider.value = Float(selectedNumber)
-        graphLabel.text = String(selectedNumber)
+        graphView.graphPoints[noOfPoints - 1] = self.pickerView.selectedRowInComponent(0)
+        graphView.observerNotify(graphView.graphPoints[noOfPoints - 1])
+    }
+    
+    //Observer Protocol
+    func update(newValue: Int) {
+        print("observer update")
+        textField.text = String(newValue)
+        slider.value = Float(newValue)
+        graphLabel.text = String(newValue)
+        pickerView.selectRow(newValue - 1, inComponent: 0, animated: true)
         graphView.setNeedsDisplay()
     }
-    
-
 }
-
-/*
-protocol PropertyObserver : class {
-    //オブジェクトの登録
-    func willChangePropertyName(propertyName:String, newPropertyValue:AnyObject?)
-    //オブジェクトにメッセージ送信
-    func didChangePropertyName(propertyName:String, oldPropertyValue:AnyObject?)
-}
-
-class TestChambers {
-    
-    weak var observer:PropertyObserver?
-    
-    var testChamberNumber: Int = 0 {
-        willSet(newValue) {
-            observer?.willChangePropertyName("testChamberNumber", newPropertyValue:newValue)
-        }
-        didSet {
-            observer?.didChangePropertyName("testChamberNumber", oldPropertyValue:oldValue)
-        }
-    }
-}
-
-class Observer : PropertyObserver {
-    func willChangePropertyName(propertyName: String, newPropertyValue: AnyObject?) {
-        if newPropertyValue as? Int == 1 {
-            print("Okay. Look. We both said a lot of things that you're going to regret.")
-        }
-    }
-    
-    func didChangePropertyName(propertyName: String, oldPropertyValue: AnyObject?) {
-        if oldPropertyValue as? Int == 0 {
-            print("Sorry about the mess. I've really let the place go since you killed me.")
-        }
-    }
-}
-*/
-
-

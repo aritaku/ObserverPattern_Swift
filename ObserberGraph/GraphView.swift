@@ -9,10 +9,28 @@
 import UIKit
 
 @IBDesignable
-class GraphView: UIView {
+class GraphView: UIView, Subject {
     
+//    var graphModel = Model()
     var graphPoints:[Int] = [4, 2, 5, 6, 2, 9, 5]
+    let viewController = ViewController()
 
+    var observers = [Observer]()
+
+    func add(newElement: Observer) -> () {
+        observers.append(newElement)
+    }
+    
+    func remove(index: Int) {
+        observers.removeAtIndex(index)
+    }
+    
+    func observerNotify(newValue: Int) {
+        for i in observers {
+            i.update(newValue)
+        }
+    }
+    
     override func drawRect(rect: CGRect) {
         
         //設定
@@ -49,9 +67,7 @@ class GraphView: UIView {
         }
         
         let clippingPath = graphPath.copy() as! UIBezierPath
-
         let highestYPoint = columnYPoint(maxValue!)
-        
         
         //draw the line on top of the clipped gradient
         graphPath.lineWidth = 2.0
@@ -68,8 +84,6 @@ class GraphView: UIView {
                     size: CGSize(width: 5.0, height: 5.0)))
             circle.fill()
         }
-        
-        
 
         //グラフ背景の横線
         let linePath = UIBezierPath()
@@ -96,8 +110,6 @@ class GraphView: UIView {
         
         linePath.lineWidth = 1.0
         linePath.stroke()
-        
-        
     }
 
 }
