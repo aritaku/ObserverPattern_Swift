@@ -17,6 +17,10 @@
 		E842A4821CBD17F200ECB155 /* ObserberGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A4811CBD17F200ECB155 /* ObserberGraphTests.swift */; };
 		E842A48D1CBD17F200ECB155 /* ObserberGraphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A48C1CBD17F200ECB155 /* ObserberGraphUITests.swift */; };
 		E842A49B1CBD1A1300ECB155 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842A49A1CBD1A1300ECB155 /* GraphView.swift */; };
+		E85B79D51CC9CC6500BC3A14 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85B79D41CC9CC6500BC3A14 /* SliderViewController.swift */; };
+		E85B79D71CC9CF9C00BC3A14 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85B79D61CC9CF9C00BC3A14 /* PickerViewController.swift */; };
+		E85B79D91CC9D3AE00BC3A14 /* SliderContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85B79D81CC9D3AE00BC3A14 /* SliderContainerView.swift */; };
+		E85B79DB1CC9D3BC00BC3A14 /* PickerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85B79DA1CC9D3BC00BC3A14 /* PickerContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		E842A48C1CBD17F200ECB155 /* ObserberGraphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserberGraphUITests.swift; sourceTree = "<group>"; };
 		E842A48E1CBD17F200ECB155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E842A49A1CBD1A1300ECB155 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		E85B79D41CC9CC6500BC3A14 /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		E85B79D61CC9CF9C00BC3A14 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		E85B79D81CC9D3AE00BC3A14 /* SliderContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderContainerView.swift; sourceTree = "<group>"; };
+		E85B79DA1CC9D3BC00BC3A14 /* PickerContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,10 @@
 				E8185C551CC88FEE00BD26BB /* Observer.swift */,
 				E8185C571CC8905D00BD26BB /* Subject.swift */,
 				E842A49A1CBD1A1300ECB155 /* GraphView.swift */,
+				E85B79D41CC9CC6500BC3A14 /* SliderViewController.swift */,
+				E85B79D81CC9D3AE00BC3A14 /* SliderContainerView.swift */,
+				E85B79DA1CC9D3BC00BC3A14 /* PickerContainerView.swift */,
+				E85B79D61CC9CF9C00BC3A14 /* PickerViewController.swift */,
 				E842A4701CBD17F200ECB155 /* Main.storyboard */,
 				E842A4731CBD17F200ECB155 /* Assets.xcassets */,
 				E842A4751CBD17F200ECB155 /* LaunchScreen.storyboard */,
@@ -268,7 +280,11 @@
 				E842A46F1CBD17F200ECB155 /* ViewController.swift in Sources */,
 				E8185C581CC8905D00BD26BB /* Subject.swift in Sources */,
 				E8185C561CC88FEE00BD26BB /* Observer.swift in Sources */,
+				E85B79D51CC9CC6500BC3A14 /* SliderViewController.swift in Sources */,
 				E842A46D1CBD17F200ECB155 /* AppDelegate.swift in Sources */,
+				E85B79D91CC9D3AE00BC3A14 /* SliderContainerView.swift in Sources */,
+				E85B79DB1CC9D3BC00BC3A14 /* PickerContainerView.swift in Sources */,
+				E85B79D71CC9CF9C00BC3A14 /* PickerViewController.swift in Sources */,
 				E842A49B1CBD1A1300ECB155 /* GraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,18 +11,15 @@ import UIKit
 @IBDesignable
 class GraphView: UIView, Subject {
     
-//    var graphModel = Model()
     var graphPoints:[Int] = [4, 2, 5, 6, 2, 9, 5]
-    let viewController = ViewController()
 
     var observers = [Observer]()
 
-    func add(newElement: Observer) -> () {
-        observers.append(newElement)
+    func add(newObserver: Observer) -> () {
+        observers.append(newObserver)
     }
     
-    func remove(index: Int) {
-        observers.removeAtIndex(index)
+    func remove(observer: Observer) {
     }
     
     func observerNotify(newValue: Int) {

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,6 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2H-2r-Max" customClass="SliderContainerView" customModule="ObserberGraph" customModuleProvider="target">
+                                <rect key="frame" x="76" y="320" width="448" height="128"/>
+                                <connections>
+                                    <segue destination="7mU-hc-Cat" kind="embed" id="0yL-jY-XLl"/>
+                                </connections>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tg0-eB-P5j" customClass="GraphView" customModule="ObserberGraph" customModuleProvider="target">
                                 <rect key="frame" x="140" y="50" width="320" height="250"/>
                                 <subviews>
@@ -35,59 +42,107 @@
                                     <constraint firstAttribute="width" constant="320" id="cuk-0b-35Q"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BaD-5X-9cu">
-                                <rect key="frame" x="138" y="394" width="324" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Jhg-Qe-i1y"/>
-                                    <constraint firstAttribute="width" constant="320" id="a4w-QE-Wbz"/>
-                                </constraints>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-L5-ebT" customClass="PickerContainerView" customModule="ObserberGraph" customModuleProvider="target">
+                                <rect key="frame" x="76" y="456" width="448" height="128"/>
                                 <connections>
-                                    <action selector="changed_slider" destination="BYZ-38-t0r" eventType="valueChanged" id="sH6-w0-g1h"/>
+                                    <segue destination="7R3-No-tom" kind="embed" id="sj3-yR-NS1"/>
                                 </connections>
-                            </slider>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-jK-GoB">
-                                <rect key="frame" x="0.0" y="432" width="600" height="168"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="168" id="W7p-A4-hfW"/>
-                                    <constraint firstAttribute="width" constant="600" id="YPr-sL-u4a"/>
-                                </constraints>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="数値を入力してください" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u2V-lp-T4g">
-                                <rect key="frame" x="200" y="342" width="199" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="199" id="RA5-i5-1KT"/>
-                                    <constraint firstAttribute="height" constant="30" id="rEI-2d-pj6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="changed_textField" destination="BYZ-38-t0r" eventType="editingChanged" id="Hz6-J8-rzr"/>
-                                </connections>
-                            </textField>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ng8-jK-GoB" firstAttribute="top" secondItem="BaD-5X-9cu" secondAttribute="bottom" constant="8" symbolic="YES" id="NmN-4w-JY1"/>
-                            <constraint firstItem="BaD-5X-9cu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NoC-r8-3kr"/>
-                            <constraint firstItem="u2V-lp-T4g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RNc-PO-jjJ"/>
-                            <constraint firstItem="BaD-5X-9cu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="109" id="dj7-Qq-tAj"/>
-                            <constraint firstItem="u2V-lp-T4g" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="57" id="rNx-3h-HIv"/>
+                            <constraint firstItem="Q74-L5-ebT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="56" id="0Ea-1i-bJn"/>
+                            <constraint firstItem="O2H-2r-Max" firstAttribute="top" secondItem="tg0-eB-P5j" secondAttribute="bottom" constant="20" id="2at-7h-h2l"/>
+                            <constraint firstItem="Q74-L5-ebT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RRI-YA-6yC"/>
+                            <constraint firstItem="O2H-2r-Max" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="56" id="cGr-Sl-ytS"/>
+                            <constraint firstAttribute="bottom" secondItem="O2H-2r-Max" secondAttribute="bottom" constant="152" id="ej2-Mk-3rz"/>
+                            <constraint firstItem="O2H-2r-Max" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j1s-IK-9WC"/>
+                            <constraint firstItem="Q74-L5-ebT" firstAttribute="top" secondItem="O2H-2r-Max" secondAttribute="bottom" constant="8" symbolic="YES" id="pWU-UM-68M"/>
                             <constraint firstItem="tg0-eB-P5j" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-125" id="sv1-lr-ydv"/>
-                            <constraint firstItem="ng8-jK-GoB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="szD-LJ-AkJ"/>
                             <constraint firstItem="tg0-eB-P5j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vqu-oK-uFW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q74-L5-ebT" secondAttribute="bottom" constant="16" id="zy7-Ha-l97"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="graphLabel" destination="tod-No-J2P" id="8jA-Gi-0yr"/>
                         <outlet property="graphView" destination="tg0-eB-P5j" id="rpL-5c-VnZ"/>
-                        <outlet property="pickerView" destination="ng8-jK-GoB" id="3Vn-fD-7tF"/>
-                        <outlet property="slider" destination="BaD-5X-9cu" id="5TO-SF-6dt"/>
-                        <outlet property="textField" destination="u2V-lp-T4g" id="LN0-B3-hON"/>
+                        <outlet property="pickerContainerView" destination="Q74-L5-ebT" id="pMv-yJ-WtW"/>
+                        <outlet property="sliderContainerView" destination="O2H-2r-Max" id="ATK-dc-G4m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="237" y="339"/>
+        </scene>
+        <!--Slider View Controller-->
+        <scene sceneID="0zb-iN-bGm">
+            <objects>
+                <viewController id="7mU-hc-Cat" customClass="SliderViewController" customModule="ObserberGraph" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tOq-Rv-x6b">
+                        <rect key="frame" x="0.0" y="0.0" width="448" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Je8-UQ-vde">
+                                <rect key="frame" x="37" y="49" width="374" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="370" id="39i-SN-K46"/>
+                                    <constraint firstAttribute="height" constant="30" id="lnx-es-Tmq"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderValue_changed:" destination="7mU-hc-Cat" eventType="valueChanged" id="nhG-T9-j56"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Je8-UQ-vde" firstAttribute="leading" secondItem="tOq-Rv-x6b" secondAttribute="leadingMargin" constant="12" id="DAN-aA-CrB"/>
+                            <constraint firstItem="Je8-UQ-vde" firstAttribute="centerX" secondItem="tOq-Rv-x6b" secondAttribute="centerX" id="OAp-JK-qL6"/>
+                            <constraint firstItem="Je8-UQ-vde" firstAttribute="centerY" secondItem="tOq-Rv-x6b" secondAttribute="centerY" id="TDi-Ve-xkW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DAN-aA-CrB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="slider" destination="Je8-UQ-vde" id="Xrv-2k-zZ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Emv-fn-kHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="345"/>
+        </scene>
+        <!--Picker View Controller-->
+        <scene sceneID="Ngy-hc-ml8">
+            <objects>
+                <viewController id="7R3-No-tom" customClass="PickerViewController" customModule="ObserberGraph" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MrZ-8f-hhY">
+                        <rect key="frame" x="0.0" y="0.0" width="448" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syk-SC-gqu">
+                                <rect key="frame" x="28" y="6" width="392" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="116" id="PEV-UH-gRo"/>
+                                    <constraint firstAttribute="width" constant="392" id="Rhl-Dj-xrw"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Syk-SC-gqu" firstAttribute="leading" secondItem="MrZ-8f-hhY" secondAttribute="leading" constant="28" id="hI8-JY-OuE"/>
+                            <constraint firstItem="Syk-SC-gqu" firstAttribute="centerX" secondItem="MrZ-8f-hhY" secondAttribute="centerX" id="mpf-xc-cEB"/>
+                            <constraint firstItem="Syk-SC-gqu" firstAttribute="top" secondItem="MrZ-8f-hhY" secondAttribute="top" constant="6" id="yTH-Ko-Y19"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="Syk-SC-gqu" id="aef-4t-5q2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SMb-xd-b9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="559"/>
         </scene>
     </scenes>
 </document>

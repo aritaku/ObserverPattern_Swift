@@ -11,8 +11,8 @@ import UIKit
 @objc
 protocol Subject {
     var observers: Array<Observer> { get }
-    func add(newElement: Observer)
-    func remove(index: Int)
+    func add(newObserver: Observer)
+    func remove(observer: Observer)
     func observerNotify(newValue: Int)
 }
 
